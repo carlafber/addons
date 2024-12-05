@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="vista_filmotecacarla_tecnica_tree">
+      <field name="name">vista_filmotecacarla_tecnica_tree</field>
+      <field name="model">filmotecacarla.tecnica</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="description"/>
+          <field name="photo"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Plantilla formulario tipo form -->
+    
+    <record model="ir.ui.view" id="vista_filmotecacarla_tecnica_form">
+      <field name="name">vista_filmotecacarla_tecnica_form</field>
+      <field name="model">filmotecacarla.tecnica</field>
+      <field name="arch" type="xml">
+        <form string="formulario_tecnica">
+          <sheet>
+            <group name="group_top">
+              <field name="name"/>
+              <field name="description"/>
+              <field name="peliculas_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Plantilla action -->
+
+    <record model="ir.actions.act_window" id="accion_filmotecacarla_tecnica_form">
+      <field name="name">Listado de Técnicas de rodaje</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">filmotecacarla.tecnica</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Técnicas
+        </p>
+        <p> Click <strong> 'Crear' </strong> para añadir nuevos elementos
+         </p>
+      </field>
+    </record> 
+
+    <!-- Top menu item -->
+    <menuitem name="Filmoteca de Carla" id="menu_filmotecacarla_raiz"/>
+
+    <!-- menu categories -->
+    <menuitem name="Listado de técnicas" id="menu_filmotecacarla_listado_tecnicas" parent="menu_filmotecacarla_raiz"/>
+
+    <!-- actions -->
+    <menuitem name="Consultar" id="menu_filmotecacarla_tecnicas" parent="menu_filmotecacarla_listado_tecnicas"
+              action="accion_filmotecacarla_tecnica_form"/>
+
+  </data>
+</odoo>
