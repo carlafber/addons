@@ -21,7 +21,7 @@
 
 
     <record model="ir.actions.act_window" id="managecarla.action_developer_window">
-      <field name="name">Lista de Desarrolladores</field>
+      <field name="name">Lista de desarrolladores</field>
       <field name="res_model">res.partner</field>
       <field name="view_mode">tree,form</field>
       <field name="domain">[('is_dev', '!=', False)]</field>
