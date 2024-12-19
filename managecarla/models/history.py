@@ -1,8 +1,6 @@
 #-*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-from datetime import date
-
 
 class history(models.Model):
     _name = 'managecarla.history'

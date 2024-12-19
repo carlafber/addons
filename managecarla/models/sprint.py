@@ -3,7 +3,6 @@
 from odoo import models, fields, api
 import datetime
 
-
 class sprint(models.Model):
     _name = 'managecarla.sprint'
     _description = 'managecarla.sprint'
@@ -25,7 +24,4 @@ class sprint(models.Model):
             if isinstance(sprint.start_date, datetime.datetime) and sprint.duration > 0:
                 sprint.end_date = sprint.start_date + datetime.timedelta(days=sprint.duration)
             else:
-                sprint.end_date = sprint.start_date
-    
-    
-    
+                sprint.end_date = sprint.start_date    

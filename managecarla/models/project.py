@@ -1,8 +1,6 @@
 #-*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-from datetime import date
-
 
 class project(models.Model):
     _name = 'managecarla.project'
@@ -14,5 +12,4 @@ class project(models.Model):
     
     histories_id = fields.One2many(string = "Historias", comodel_name = "managecarla.history", inverse_name = "project_id")
     
-    sprints_id = fields.One2many(string = "Carreras", comodel_name = "managecarla.sprint", inverse_name = "project_id")
-    
+    sprints_id = fields.One2many(string = "Carreras", comodel_name = "managecarla.sprint", inverse_name = "project_id")    

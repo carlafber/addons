@@ -3,7 +3,6 @@
 from odoo import models, fields, api
 import datetime
 
-
 class task(models.Model):
     _name = 'managecarla.task'
     _description = 'managecarla.task'
