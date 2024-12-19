@@ -12,4 +12,8 @@ class developer(models.Model):
                                        relation = "developer_technologies",
                                        column1 = "developer_id", column2 = "technologies")
     
-    
+    @api.model
+    def create(self, vals):
+        # Si se crea un registro desde este modelo, el campo is_dev se marca como True
+        vals['is_dev'] = True
+        return super(developer, self).create(vals)
