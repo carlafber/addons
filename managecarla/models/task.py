@@ -12,7 +12,14 @@ class task(models.Model):
     description = fields.Text(string="Descripción")
     start_date = fields.Datetime(string="Fecha de inicio", default = lambda p : datetime.datetime.now())
     end_date = fields.Datetime(string="Fecha de fin")
-    is_paused = fields.Boolean(string="¿Pausado?")
+    is_paused = fields.Boolean(string="¿Pausada?")
+    
+    state = fields.Selection([
+        ('todo', 'Por Hacer'),
+        ('in_progress', 'En Progreso'),
+        ('blocked', 'Bloqueada'),
+        ('done', 'Completada')
+    ], string="Estado", default='todo', required=True)
     
     
     sprint_id = fields.Many2one("managecarla.sprint", string = "Carrera", ondelete = "cascade", compute = "_get_sprint")

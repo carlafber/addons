@@ -11,6 +11,7 @@
           <field name="start_date"/>
           <field name="end_date"/>
           <field name="is_paused"/>
+          <field name="state"/>
           <field name="sprint_id"/>
           <field name="technologies_id"/>
           <field name="history_id"/>
@@ -32,6 +33,7 @@
                 <field name="start_date"/>
                 <field name="end_date"/>
                 <field name="is_paused"/>
+                <field name="state"/>
                 <field name="sprint_id"/>     
                 <field name="technologies_id"/>
                 <field name="history_id"/>

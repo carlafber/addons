@@ -10,6 +10,8 @@
           <field name="description"/>
           <field name="histories_id"/>
           <field name="sprints_id"/>
+          <field name="state"/>
+          <field name="progress" widget="progressbar"/>
         </tree>
       </field>
     </record>
@@ -22,10 +24,18 @@
         <form string="formulario_project">
           <sheet>
             <group name="group_top">
+              <group name="group_left">
                 <field name="name"/>
                 <field name="description"/>
-                <field name="histories_id"/>
-                <field name="sprints_id"/>
+              </group>
+              <group name="group_right">
+                <field name="state"/>
+                <field name="progress" widget="progressbar"/>
+              </group>
+            </group>
+            <group name="group_bottom">
+              <field name="histories_id"/>
+              <field name="sprints_id"/>
             </group>
           </sheet>
         </form>
