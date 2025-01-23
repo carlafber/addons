@@ -1,0 +1,70 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="vista_padelschoolcarla_school_tree">
+      <field name="name">vista_padelschoolcarla_school_tree</field>
+      <field name="model">padelschoolcarla.school</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="logo"/>
+          <field name="address"/>
+          <field name="mail"/>
+          <field name="phone"/>
+          <field name="description"/>
+          <field name="courses_id"/>
+          <field name="students_school"/>
+        </tree>
+      </field>
+    </record>
+
+    
+    <record model="ir.ui.view" id="vista_padelschoolcarla_school_form">
+      <field name="name">vista_padelschoolcarla_school_form</field>
+      <field name="model">padelschoolcarla.school</field>
+      <field name="arch" type="xml">
+        <form string="formulario_school">
+          <sheet>
+            <group name="group_top">
+                <field name="name"/>
+                <field name="logo" widget="image"/>
+                <field name="address"/>
+                <field name="mail"/>
+                <field name="phone"/>
+                <field name="description"/>
+                <field name="courses_id"/>
+                <field name="students_school"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="accion_padelschoolcarla_school_form">
+      <field name="name">Listado de escuelas</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">padelschoolcarla.school</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Escuelas
+        </p>
+        <p> Click <strong> 'Nueva' </strong> para añadir una nueva escuela
+         </p>
+      </field>
+    </record> 
+
+
+    <!-- Top menu item -->
+    <menuitem name="Escuela de Pádel de Carla" id="menu_padelschoolcarla_raiz"/>
+
+    <!-- menu categories -->
+    <menuitem name="Pádel" id="menu_padelschoolcarla_listado" parent="menu_padelschoolcarla_raiz"/>
+
+    <!-- actions -->
+    <menuitem name="Escuelas" id="menu_padelschoolcarla_escuelas" parent="menu_padelschoolcarla_listado"
+              action="accion_padelschoolcarla_school_form"/>
+
+  </data>
+</odoo>

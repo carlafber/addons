@@ -1,0 +1,64 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="vista_padelschoolcarla_coach_tree">
+      <field name="name">vista_padelschoolcarla_coach_tree</field>
+      <field name="model">padelschoolcarla.coach</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="surnames"/>
+          <field name="mail"/>
+          <field name="phone"/>
+          <field name="courses_id"/>
+        </tree>
+      </field>
+    </record>
+
+    
+    <record model="ir.ui.view" id="vista_padelschoolcarla_coach_form">
+      <field name="name">vista_padelschoolcarla_coach_form</field>
+      <field name="model">padelschoolcarla.coach</field>
+      <field name="arch" type="xml">
+        <form string="formulario_school">
+          <sheet>
+            <group name="group_top">
+                <field name="name"/>
+                <field name="surnames"/>
+                <field name="mail"/>
+                <field name="phone"/>
+                <field name="courses_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="accion_padelschoolcarla_coach_form">
+      <field name="name">Listado de monitores</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">padelschoolcarla.coach</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Monitores
+        </p>
+        <p> Click <strong> 'Nuevo' </strong> para añadir un nuevo monitor
+         </p>
+      </field>
+    </record> 
+
+
+    <!-- Top menu item -->
+    <menuitem name="Escuela de Pádel de Carla" id="menu_padelschoolcarla_raiz"/>
+
+    <!-- menu categories -->
+    <menuitem name="Pádel" id="menu_padelschoolcarla_listado" parent="menu_padelschoolcarla_raiz"/>
+
+    <!-- actions -->
+    <menuitem name="Monitores" id="menu_padelschoolcarla_monitores" parent="menu_padelschoolcarla_listado"
+              action="accion_padelschoolcarla_coach_form"/>
+
+  </data>
+</odoo>

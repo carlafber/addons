@@ -1,0 +1,64 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="vista_padelschoolcarla_student_tree">
+      <field name="name">vista_padelschoolcarla_student_tree</field>
+      <field name="model">padelschoolcarla.student</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="surnames"/>
+          <field name="mail"/>
+          <field name="phone"/>
+          <field name="courses_id"/>
+        </tree>
+      </field>
+    </record>
+
+    
+    <record model="ir.ui.view" id="vista_padelschoolcarla_student_form">
+      <field name="name">vista_padelschoolcarla_student_form</field>
+      <field name="model">padelschoolcarla.student</field>
+      <field name="arch" type="xml">
+        <form string="formulario_school">
+          <sheet>
+            <group name="group_top">
+                <field name="name"/>
+                <field name="surnames"/>
+                <field name="mail"/>
+                <field name="phone"/>
+                <field name="courses_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="accion_padelschoolcarla_student_form">
+      <field name="name">Listado de alumnos</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">padelschoolcarla.student</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Alumnos
+        </p>
+        <p> Click <strong> 'Nuevo' </strong> para añadir un nuevo alumno
+         </p>
+      </field>
+    </record> 
+
+
+    <!-- Top menu item -->
+    <menuitem name="Escuela de Pádel de Carla" id="menu_padelschoolcarla_raiz"/>
+
+    <!-- menu categories -->
+    <menuitem name="Pádel" id="menu_padelschoolcarla_listado" parent="menu_padelschoolcarla_raiz"/>
+
+    <!-- actions -->
+    <menuitem name="Alumnos" id="menu_padelschoolcarla_alumnos" parent="menu_padelschoolcarla_listado"
+              action="accion_padelschoolcarla_student_form"/>
+
+  </data>
+</odoo>
