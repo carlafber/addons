@@ -1,0 +1,76 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="vista_cliniccarla_professional_tree">
+      <field name="name">vista_cliniccarla_professional_tree</field>
+      <field name="model">cliniccarla.professional</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="surnames"/>
+          <field name="type_of"/>
+          <field name="phone"/>
+          <field name="mail"/>
+          <field name="treatments_id"/> <!-- no sería necesario -->
+        </tree>
+      </field>
+    </record>
+
+    
+    <record model="ir.ui.view" id="vista_cliniccarla_professional_form">
+      <field name="name">vista_cliniccarla_professional_form</field>
+      <field name="model">cliniccarla.professional</field>
+      <field name="arch" type="xml">
+        <form string="formulario_professional">
+          <sheet>
+            <group name="group_top">
+                <field name="name"/>
+                <field name="surnames"/>
+                <field name="type_of"/>
+                <field name="phone"/>
+                <field name="mail"/>
+                <field name="treatments_id"/> <!-- no sería necesario -->
+            </group>
+            <notebook>
+                <page string="Sesiones Asignadas">
+                <field name="asigned_sessions" readonly="1">
+                    <tree>
+                    <field name="name" string="nombre"/>
+                    <field name="date" string="fecha"/>
+                    </tree>
+                </field>
+                </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="accion_cliniccarla_professional_form">
+      <field name="name">Listado de profesionales</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">cliniccarla.professional</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Profesionales
+        </p>
+        <p> Click <strong> 'Nuevo' </strong> para añadir un nuevo profesional
+         </p>
+      </field>
+    </record> 
+
+
+    <!-- Top menu item -->
+    <menuitem name="Clínica de Fisioterapia de Carla" id="menu_cliniccarla_raiz"/>
+
+    <!-- menu categories -->
+    <menuitem name="Clínica" id="menu_cliniccarla_listado" parent="menu_cliniccarla_raiz"/>
+
+    <!-- actions -->
+    <menuitem name="Profesionales" id="menu_cliniccarla_profesionales" parent="menu_cliniccarla_listado"
+              action="accion_cliniccarla_professional_form"/>
+
+  </data>
+</odoo>

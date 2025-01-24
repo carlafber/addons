@@ -1,0 +1,68 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="vista_cliniccarla_client_tree">
+      <field name="name">vista_cliniccarla_client_tree</field>
+      <field name="model">cliniccarla.client</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="surnames"/>
+          <field name="birth_date"/>
+          <field name="phone"/>
+          <field name="mail"/>
+          <field name="address"/>
+          <field name="registers_id"/> <!-- no sería necesario -->
+        </tree>
+      </field>
+    </record>
+
+    
+    <record model="ir.ui.view" id="vista_cliniccarla_client_form">
+      <field name="name">vista_cliniccarla_client_form</field>
+      <field name="model">cliniccarla.client</field>
+      <field name="arch" type="xml">
+        <form string="formulario_client">
+          <sheet>
+            <group name="group_top">
+                <field name="name"/>
+                <field name="surnames"/>
+                <field name="birth_date"/>
+                <field name="phone"/>
+                <field name="mail"/>
+                <field name="address"/>
+                <field name="registers_id"/> <!-- no sería necesario -->
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="accion_cliniccarla_client_form">
+      <field name="name">Listado de clientes</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">cliniccarla.client</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Clientes
+        </p>
+        <p> Click <strong> 'Nuevo' </strong> para añadir un nuevo cliente
+         </p>
+      </field>
+    </record> 
+
+
+    <!-- Top menu item -->
+    <menuitem name="Clínica de Fisioterapia de Carla" id="menu_cliniccarla_raiz"/>
+
+    <!-- menu categories -->
+    <menuitem name="Clínica" id="menu_cliniccarla_listado" parent="menu_cliniccarla_raiz"/>
+
+    <!-- actions -->
+    <menuitem name="Clientes" id="menu_cliniccarla_clientes" parent="menu_cliniccarla_listado"
+              action="accion_cliniccarla_client_form"/>
+
+  </data>
+</odoo>

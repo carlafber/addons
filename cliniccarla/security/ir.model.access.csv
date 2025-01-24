@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cliniccarla_client,cliniccarla.client,model_cliniccarla_client,base.group_user,1,1,1,1
+access_cliniccarla_register,cliniccarla.register,model_cliniccarla_register,base.group_user,1,1,1,1
+access_cliniccarla_treatment,cliniccarla.treatment,model_cliniccarla_treatment,base.group_user,1,1,1,1
+access_cliniccarla_session,cliniccarla.session,model_cliniccarla_session,base.group_user,1,1,1,1
+access_cliniccarla_professional,cliniccarla.professional,model_cliniccarla_professional,base.group_user,1,1,1,1
+access_cliniccarla_technique,cliniccarla.technique,model_cliniccarla_technique,base.group_user,1,1,1,1

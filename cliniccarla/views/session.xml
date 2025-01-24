@@ -1,0 +1,76 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="vista_cliniccarla_session_tree">
+      <field name="name">vista_cliniccarla_session_tree</field>
+      <field name="model">cliniccarla.session</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="description"/>
+          <field name="date"/>
+          <field name="treatment_id"/>
+          <field name="techniques_id"/>
+        </tree>
+      </field>
+    </record>
+
+    
+    <record model="ir.ui.view" id="vista_cliniccarla_session_form">
+      <field name="name">vista_cliniccarla_session_form</field>
+      <field name="model">cliniccarla.session</field>
+      <field name="arch" type="xml">
+        <form string="formulario_session">
+          <sheet>
+            <group name="group_top">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="date"/>
+                <field name="treatment_id"/>
+                <field name="techniques_id"/>
+                <field name="professional_session"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_cliniccarla_session_calendar">
+      <field name="name">view_cliniccarla_session_calendar</field>
+      <field name="model">cliniccarla.session</field>
+      <field name="arch" type="xml">
+        <calendar string="Calendario de Sesiones" date_start="date" date_stop="date" color="date">
+            <field name="name"/>
+            <field name="date"/>            
+        </calendar>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="accion_cliniccarla_session_form">
+      <field name="name">Listado de sesiones</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">cliniccarla.session</field>
+      <field name="view_mode">tree,form,calendar</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Sesiones
+        </p>
+        <p> Click <strong> 'Nuevo' </strong> para añadir una nueva sesión
+         </p>
+      </field>
+    </record> 
+
+
+    <!-- Top menu item -->
+    <menuitem name="Clínica de Fisioterapia de Carla" id="menu_cliniccarla_raiz"/>
+
+    <!-- menu categories -->
+    <menuitem name="Clínica" id="menu_cliniccarla_listado" parent="menu_cliniccarla_raiz"/>
+
+    <!-- actions -->
+    <menuitem name="Sesiones" id="menu_cliniccarla_sesiones" parent="menu_cliniccarla_listado"
+              action="accion_cliniccarla_session_form"/>
+
+  </data>
+</odoo>

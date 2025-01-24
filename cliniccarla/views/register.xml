@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="vista_cliniccarla_register_tree">
+      <field name="name">vista_cliniccarla_register_tree</field>
+      <field name="model">cliniccarla.register</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="description"/>
+          <field name="client_id"/>
+          <field name="treatments_id"/> <!-- no sería necesario -->
+        </tree>
+      </field>
+    </record>
+
+    
+    <record model="ir.ui.view" id="vista_cliniccarla_register_form">
+      <field name="name">vista_cliniccarla_register_form</field>
+      <field name="model">cliniccarla.register</field>
+      <field name="arch" type="xml">
+        <form string="formulario_register">
+          <sheet>
+            <group name="group_top">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="client_id"/>
+                <field name="treatments_id"/> <!-- no sería necesario -->
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="accion_cliniccarla_register_form">
+      <field name="name">Listado de registros</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">cliniccarla.register</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Registros
+        </p>
+        <p> Click <strong> 'Nuevo' </strong> para añadir un nuevo registro
+         </p>
+      </field>
+    </record> 
+
+
+    <!-- Top menu item -->
+    <menuitem name="Clínica de Fisioterapia de Carla" id="menu_cliniccarla_raiz"/>
+
+    <!-- menu categories -->
+    <menuitem name="Clínica" id="menu_cliniccarla_listado" parent="menu_cliniccarla_raiz"/>
+
+    <!-- actions -->
+    <menuitem name="Registros" id="menu_cliniccarla_registros" parent="menu_cliniccarla_listado"
+              action="accion_cliniccarla_register_form"/>
+
+  </data>
+</odoo>
